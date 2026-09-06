@@ -1,0 +1,20 @@
+Jan  5 08:00:01 webhost1 sshd[1234]: Accepted password for analyst from 198.51.100.22 port 44221 ssh2
+Jan  5 08:00:02 webhost1 sshd[1234]: pam_unix(sshd:session): session opened for user analyst
+Jan  5 08:01:10 webhost1 sshd[2345]: Failed password for root from 203.0.113.50 port 51200 ssh2
+Jan  5 08:01:11 webhost1 sshd[2346]: Failed password for root from 203.0.113.50 port 51201 ssh2
+Jan  5 08:01:12 webhost1 sshd[2347]: Failed password for root from 203.0.113.50 port 51202 ssh2
+Jan  5 08:01:13 webhost1 sshd[2348]: Failed password for root from 203.0.113.50 port 51203 ssh2
+Jan  5 08:01:14 webhost1 sshd[2349]: Failed password for root from 203.0.113.50 port 51204 ssh2
+Jan  5 08:01:15 webhost1 sshd[2350]: Failed password for root from 203.0.113.50 port 51205 ssh2
+Jan  5 08:01:16 webhost1 sshd[2351]: Failed password for admin from 203.0.113.50 port 51206 ssh2
+Jan  5 08:01:17 webhost1 sshd[2352]: Failed password for admin from 203.0.113.50 port 51207 ssh2
+Jan  5 08:01:18 webhost1 sshd[2353]: Failed password for admin from 203.0.113.50 port 51208 ssh2
+Jan  5 08:01:19 webhost1 sshd[2354]: Failed password for admin from 203.0.113.50 port 51209 ssh2
+Jan  5 08:01:20 webhost1 sshd[2355]: Failed password for admin from 203.0.113.50 port 51210 ssh2
+Jan  5 08:01:21 webhost1 sshd[2356]: Failed password for administrator from 203.0.113.50 port 51211 ssh2
+Jan  5 08:01:22 webhost1 sshd[2357]: Failed password for administrator from 203.0.113.50 port 51212 ssh2
+Jan  5 08:01:23 webhost1 sshd[2358]: Failed password for root from 203.0.113.50 port 51213 ssh2
+Jan  5 08:01:24 webhost1 sshd[2359]: Failed password for root from 203.0.113.50 port 51214 ssh2
+Jan  5 08:01:25 webhost1 sshd[2360]: Failed password for root from 203.0.113.50 port 51215 ssh2
+Jan  5 09:00:00 webhost1 sudo: analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/apt update
+Jan  5 14:30:00 webhost1 sshd[4567]: Accepted publickey for admin from 198.51.100.22 port 60000 ssh2

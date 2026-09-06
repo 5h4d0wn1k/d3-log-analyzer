@@ -1,113 +1,65 @@
 # D3 — Log Analyzer
 
-Centralized log parsing and timeline reconstruction for incident response.
+Multi-format log parsing, timeline reconstruction, IOC extraction, anomaly detection.
 
-## Overview
+## IMPORTANT: Read before use.
 
-This project implements a log analysis tool that:
-- Parses multiple log formats (syslog, Apache, Nginx, auth logs)
-- Builds attack timelines from log entries
-- Detects anomalies and suspicious patterns
-- Extracts IoCs (Indicators of Compromise)
-- Generates HTML reports
+This tool is for **authorized educational and blue-team analysis only**. Analyze logs on systems you own or have explicit written permission to examine. Never use for unauthorized access.
 
 ## Features
 
-- **Multi-format support**: Syslog, Apache, Nginx, auth logs
-- **Anomaly detection**: Brute force, SQL injection, XSS, directory scanning
-- **IoC extraction**: IPs, domains, hashes, URLs
-- **Timeline reconstruction**: Build event sequences
-- **HTML reports**: Visual analysis output
+- **Multi-format parsing**: syslog, nginx combined, auth.log, JSONL
+- **Anomaly detection**: brute-force SSH, SQL injection, XSS, directory scanning
+- **IOC extraction**: IPs, domains, hashes (MD5/SHA1/SHA256)
+- **Timeline reconstruction**: chronological ordering of all events
+- **JSON report output**: structured analysis results
+- **Directory input**: auto-detect format from filename
 
-## Installation
-
-```bash
-pip install python-magic
-```
-
-## Usage
+## Quick Start
 
 ```bash
-# Analyze syslog
-python3 log_analyzer.py -i /var/log/syslog -o report.html
+# Run demo on built-in fixtures
+python3 cli.py --demo
 
-# Analyze Apache logs
-python3 log_analyzer.py -i /var/log/apache2/access.log -o apache_report.html
+# Analyze a log file
+python3 cli.py --input /var/log/syslog --output reports/report.json
 
-# Analyze auth logs
-python3 log_analyzer.py -i /var/log/auth.log -o auth_report.html
+# Analyze a directory of mixed logs
+python3 cli.py --input /var/log --output reports/report.json
 ```
 
-## Example Output
+## Parsed Formats
 
-```
-=== D3 — Log Analyzer ===
-Input: /var/log/auth.log
+| Format | Example Source | Fields Extracted |
+|--------|---------------|------------------|
+| syslog | rsyslog, syslog-ng | timestamp, hostname, service, pid, message |
+| nginx combined | nginx access.log | ip, timestamp, method, url, status, size |
+| auth.log | PAM, sshd | type (login_success/login_failure), method, user, ip |
+| JSONL | structured logs | all JSON fields |
 
-Loading logs from /var/log/auth.log...
-Loaded 12345 entries
+## Testing
 
-Detecting anomalies...
-Found 5 anomalies
-
-Extracting IoCs...
-Found 23 IoCs
-
-Building timeline...
-Timeline contains 12345 events
-
-==================================================
-ANALYSIS COMPLETE
-==================================================
-
-Total entries: 12345
-Anomalies: 5
-IoCs: 23
-
-Top anomalies:
-  [HIGH] 47 failed login attempts from 192.168.1.100
-  [MEDIUM] 234 404 errors - possible directory scanning
-  [MEDIUM] Potential privilege escalation command
+```bash
+python3 -m unittest discover -s tests
 ```
 
-## Legal Disclaimer
+## Live Lab Test Plan
 
-**IMPORTANT: Read before use.**
+1. Run `python3 cli.py --demo` — should exit 0 and print analysis report
+2. Run `python3 -m unittest discover -s tests` — all tests pass
+3. Verify `reports/d3_report.json` contains anomalies and IOCs
 
-This project is provided for **educational and authorized security testing purposes only**. 
+## Metrics
 
-### Authorization Requirements
-- You MUST have explicit written permission before analyzing logs
-- Unauthorized access to system logs is illegal under federal and state laws
-- This tool should ONLY be used on systems you own or have written authorization to analyze
+- Formats parsed: 4 (syslog, nginx, auth.log, JSONL)
+- Anomaly types detected: 4 (brute_force, sql_injection, xss_attempt, directory_scan)
+- Test count: 10
+- Demo exit code: 0
 
-### Legal Framework
-- **Computer Fraud and Abuse Act (CFAA)**: Unauthorized access to computer systems is a federal crime
-- **Privacy Laws**: Log data may contain personally identifiable information
-- **State Laws**: Many states have additional computer crime and privacy statutes
-- **GDPR/CCPA**: Log data may be subject to privacy regulations
+## Legal
 
-### Acceptable Use
-- Analyzing logs on your own systems
-- Authorized incident response with written scope
-- Academic research in controlled lab environments
-- Security education and training
-
-### Prohibited Use
-- Accessing logs without authorization
-- Sharing sensitive log data
-- Any activity that violates applicable laws or regulations
-- Commercial use without proper licensing
-
-### No Warranty
-This software is provided "AS IS" without warranty of any kind. The author is not responsible for any misuse or damage caused by this software.
-
-### Responsible Disclosure
-If you discover vulnerabilities using this tool, follow responsible disclosure practices:
-1. Report to the vendor/owner privately
-2. Allow reasonable time for remediation
-3. Do not exploit beyond proof of concept
+This software is provided for educational purposes only. See LICENSE for full terms.
 
 ## License
 
-MIT
+MIT License — see [LICENSE](LICENSE).

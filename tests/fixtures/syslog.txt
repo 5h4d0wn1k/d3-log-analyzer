@@ -1,0 +1,15 @@
+Jan  5 08:00:01 webhost1 sshd[1234]: Accepted password for analyst from 198.51.100.22 port 44221 ssh2
+Jan  5 08:00:02 webhost1 sshd[1234]: pam_unix(sshd:session): session opened for user analyst
+Jan  5 08:01:10 webhost1 sshd[2345]: Failed password for root from 203.0.113.50 port 51200 ssh2
+Jan  5 08:01:11 webhost1 sshd[2346]: Failed password for root from 203.0.113.50 port 51201 ssh2
+Jan  5 08:01:12 webhost1 sshd[2347]: Failed password for root from 203.0.113.50 port 51202 ssh2
+Jan  5 08:01:13 webhost1 sshd[2348]: Failed password for root from 203.0.113.50 port 51203 ssh2
+Jan  5 08:01:14 webhost1 sshd[2349]: Failed password for root from 203.0.113.50 port 51204 ssh2
+Jan  5 08:01:15 webhost1 sshd[2350]: Failed password for root from 203.0.113.50 port 51205 ssh2
+Jan  5 08:02:00 webhost1 kernel: [UFW BLOCK] IN=eth0 SRC=203.0.113.50 DST=198.51.100.10 PROTO=TCP DPT=22
+Jan  5 09:15:00 webhost1 CRON[3456]: (root) CMD (/usr/local/bin/backup.sh)
+Jan  5 10:30:00 webhost1 sudo: analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/apt update
+Jan  5 11:00:00 webhost1 systemd[1]: Started Apache HTTP Server.
+Jan  5 12:00:00 webhost1 kernel: [UFW BLOCK] IN=eth0 SRC=192.0.2.99 DST=198.51.100.10 PROTO=UDP DPT=53
+Jan  5 14:30:00 webhost1 sshd[4567]: Accepted publickey for admin from 198.51.100.22 port 60000 ssh2
+Jan  5 15:00:00 webhost1 kernel: TCP: Possible SYN flooding on port 80. Sending cookies.
